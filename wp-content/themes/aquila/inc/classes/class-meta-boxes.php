@@ -17,13 +17,14 @@
         $this->setup_hooks();
     }
 
-    protected function setup_hooks(){
+   protected function setup_hooks(){
         /**
          * Actions hooks
          */
 
-        add_action( 'add_meta_boxes', [ $this, 'add_custom_meta_box' ] );
-    }
+      add_action( 'add_meta_boxes', [ $this, 'add_custom_meta_box' ] );
+		add_action( 'save_post', [ $this ,'save_post_meta_data'] );
+   }
 
     /**
 	 * Add custom meta box.
@@ -76,6 +77,16 @@
 			</option>
 		</select>
 		<?php
+	}
+
+	public function save_post_meta_data( $post_id ){
+		if ( array_key_exists( 'aquila_hide_title_field', $_POST ) ) {
+			update_post_meta(
+				$post_id,
+				'_hide_page_title',
+				$_POST['aquila_hide_title_field']
+			);
+		}
 	}
 
     

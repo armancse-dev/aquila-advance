@@ -40,8 +40,8 @@ $has_post_thumbnail = get_the_post_thumbnail($the_post_id);
         if( is_single() || is_page() ){
             printf(
                 '<h1 class="page-title text-dark %1$s">%2$s</h1>',
-                esc_attr( $heading_class ),
-                wp_kses_post( $get_the_title() )
+                esc_attr( $header_class ),
+                wp_kses_post( get_the_title() )
             );
         } else{
             printf(

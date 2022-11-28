@@ -52,15 +52,19 @@ get_header();
                 endwhile;
               ?>
             </div>
-          </div>
+          
 
-        <?php
-          else :
+          <?php
+            else :
 
-          get_template_part( 'template-parts/content-none' );
-      endif;
+            get_template_part( 'template-parts/content-none' );
+          endif;
+
+        aquila_pagination();
       
-    ?>
+        ?>
+
+</div>
   </main>
 </div>
    

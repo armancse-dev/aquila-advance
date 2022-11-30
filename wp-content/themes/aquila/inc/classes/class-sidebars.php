@@ -22,6 +22,7 @@
          * Actions hooks
          */
       add_action( 'widgets_init', [ $this, 'register_sidebars' ] );
+      add_action( 'widgets_init',[$this, 'register_clock_widget'] );
        
    }
 
@@ -45,6 +46,10 @@
          'before_title'  => '<h2 class="widgettitle">',
          'after_title'   => '</h2>',
       ) );
+   }
+
+   public function register_clock_widget(){
+      register_widget( 'AQUILA_THEME\Inc\Clock_Widget' );
    }
 
     

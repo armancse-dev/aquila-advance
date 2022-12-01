@@ -28,10 +28,13 @@
 
     public function register_styles(){
         //register styles
-        wp_register_style( 'style', get_stylesheet_uri() , [], filemtime( AQUILA_DIR_PATH. '/style.css' ), 'all' );
+        wp_register_style( 'style', get_stylesheet_uri(), [], filemtime( AQUILA_DIR_PATH. '/style.css' ), 'all' );
+
+        // wp_register_style( 'main-css', AQUILA_BUILD_CSS_URI . '/style.css', ['main-css'], filemtime( AQUILA_BUILD_CSS_DIR_PATH . '/style.css' ), 'all' );
+
         wp_register_style( 'bootstrap-css', AQUILA_DIR_URI. '/assets/src/library/css/bootstrap.min.css' , [], false, 'all' );
          //enqueue style
-        wp_enqueue_style('style');
+        wp_enqueue_style('main-css');
         wp_enqueue_style('bootstrap-css');
     }
 

@@ -1,0 +1,21 @@
+{
+  "name": "aquila",
+  "version": "1.0.0",
+  "description": "Aquila Theme packages",
+  "main": "main.js",
+  "scripts": {
+    "prod": "cross-env NODE_ENV=production webpack --mode production --progress",
+    "dev": "cross-env NODE_ENV=development webpack --watch --mode development --progress",
+    "clean": "rm -rf build/*"
+  },
+  "keywords": [
+    "wordpress",
+    "theme"
+  ],
+  "author": "Arman",
+  "license": "MIT",
+  "private": true,
+  "browserslist": [
+    "defaults"
+  ]
+}

@@ -1,11 +1,14 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {CleanWebpackPlugin} = require ( 'clean-webpack-plugin' );
+const optimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const cssnano = require('cssnano'); //https://cssnano.com
+const UglifyJsPlugin = require ('uglifyjs-webpack-plugin');
 
-const CleanWebpackPlugin = require ( 'clean-webpack-plugin' );
 const { argv } = require('process');
 
-const JS_DIR = path.resolve( __dirname, '/src/js' );
-const IMG_DIR = path.resolve( __dirname, '/src/img' );
+const JS_DIR = path.resolve( __dirname, 'src/js' );
+const IMG_DIR = path.resolve( __dirname, 'src/img' );
 const BUILD_DIR = path.resolve( __dirname, 'build' );
 
 const entry = {
@@ -61,6 +64,18 @@ module.exports = ( env, argv ) => ({
    devtool: 'source-map',
    module: {
       rules: rules,
+   },
+   optimization: {
+      minimizer: [
+         new optimizeCssAssetsPlugin({
+            cssProcessor: cssnano,
+         }),
+         new UglifyJsPlugin({
+            cache: false,
+            parallel: true,
+            sourceMap: false,
+         })
+      ]
    },
    plugins: plugins( argv ),
    externals: {

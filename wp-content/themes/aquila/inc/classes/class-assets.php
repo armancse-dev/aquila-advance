@@ -40,7 +40,7 @@
 
     public function register_scripts(){
         //register scripts
-        wp_register_script( 'main-script', get_template_directory_uri() . '/assets/main.js', [], filemtime( get_template_directory(). '/assets/main.js' ), true );
+        wp_register_script( 'main-script', AQUILA_BUILD_JS_URI . '/main.js', [], filemtime( AQUILA_BUILD_JS_URI. '/assets/main.js' ), true );
         
         wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/assets/src/library/js/bootstrap.min.js', ['jquery'], true );
 

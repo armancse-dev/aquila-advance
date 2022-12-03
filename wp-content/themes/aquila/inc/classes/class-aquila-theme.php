@@ -70,7 +70,10 @@ use AQUILA_THEME\Inc\Traits\Singleton;
             'caption',
             ]
         );
-        add_editor_style();
+
+        add_editor_style('assets/build/css/editor.css');
+
+
         add_theme_support( 'wp-block-styles' );
 
         add_theme_support( 'align-wide' );

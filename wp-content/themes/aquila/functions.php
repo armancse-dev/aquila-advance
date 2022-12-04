@@ -40,4 +40,17 @@ aquila_get_theme_instance();
    
  }
  add_action( 'wp_enqueue_scripts', 'aquila_enqueue_scripts' );
+
+ function ebayads_remove_block_styles(){
+  wp_dequeue_style('wp-block-library');
+  wp_dequeue_style('wp-block-library-theme');
+  wp_dequeue_style('wp-block-style');  //Remove Woocommerce block CSS
+  
+ }
+
+add_action( 'wp_enqueue_scripts', 'ebayads_remove_block_styles', 100 );
+
+
+
+
 ?>

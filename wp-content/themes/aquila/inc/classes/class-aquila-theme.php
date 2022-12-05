@@ -74,6 +74,9 @@ use AQUILA_THEME\Inc\Traits\Singleton;
 
         add_editor_style('assets/build/css/editor.css');
 
+        //remove the core block patterns
+        remove_theme_support('core-block-patterns');
+
 
         add_theme_support( 'wp-block-styles' );
 
